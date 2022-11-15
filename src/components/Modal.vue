@@ -34,7 +34,7 @@ const keyframeCSS = computed(() => {
     @click="visible = false"
   >
     <div w-full h-full fcc>
-      <div min-w="50%" fccc gap-1 class="prose" @click.stop="() => {}">
+      <div fccc gap-1 class="prose" @click.stop="() => {}">
         <h2
           fw-600
           text-3xl
