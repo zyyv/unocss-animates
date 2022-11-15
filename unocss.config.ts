@@ -1,4 +1,4 @@
-import { defineConfig, presetAttributify, presetIcons, presetUno, transformerDirectives } from 'unocss'
+import { defineConfig, presetAttributify, presetIcons, presetTypography, presetUno, transformerDirectives } from 'unocss'
 import { presetUseful } from 'unocss-preset-useful'
 import { theme } from '@unocss/preset-wind'
 
@@ -8,7 +8,8 @@ export default defineConfig({
     presetAttributify(),
     presetIcons(),
     presetUseful(),
+    presetTypography(),
   ],
-  transformers: [transformerDirectives()],
+  transformers: [transformerDirectives(), transformerDirectives()],
   safelist: Object.keys(theme.animation?.keyframes ?? {}).map(k => `animate-${k}`),
 })
