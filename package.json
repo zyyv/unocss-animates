@@ -1,0 +1,25 @@
+{
+  "name": "unocss-animates",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.2.41"
+  },
+  "devDependencies": {
+    "@chris-zhu/eslint-config": "^1.0.7",
+    "@unocss/preset-wind": "^0.46.5",
+    "@unocss/reset": "^0.46.5",
+    "@vitejs/plugin-vue": "^3.2.0",
+    "typescript": "^4.6.4",
+    "unocss": "^0.46.5",
+    "unocss-preset-useful": "^0.0.7",
+    "vite": "^3.2.3",
+    "vue-tsc": "^1.0.9"
+  }
+}
