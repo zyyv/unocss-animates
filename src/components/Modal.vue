@@ -34,7 +34,7 @@ const keyframeCSS = computed(() => {
     @click="visible = false"
   >
     <div w-full h-full fcc>
-      <div min-w="50%" fccc gap-4 class="prose" @click.stop="() => {}">
+      <div min-w="50%" fccc gap-1 class="prose" @click.stop="() => {}">
         <h2
           fw-600
           text-3xl
@@ -46,6 +46,9 @@ const keyframeCSS = computed(() => {
         >
           {{ animateInfo.name }}
         </h2>
+        <p>
+          Class: <span hover="b b-teal-300 b-dashed rd-2 cursor-pointer" inline-block p="x-2" text-teal>animate-{{ animateInfo.name }}</span>
+        </p>
         <!-- <p>
           <label fw-500 text="teal sm right" inline-block w-30>Count:</label>
           {{ animateInfo.count }}
