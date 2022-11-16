@@ -1,24 +1,18 @@
 <script lang='ts' setup>
-import { getHighlighter } from 'shiki-es'
 import type { Highlighter } from 'shiki-es'
 import type { AnimateInfo } from '../type'
 
 const props = defineProps<{
   visible: boolean
   animateInfo: AnimateInfo
+  highlighter?: Highlighter
 }>()
 const visible = useVModel(props, 'visible')
 
-const highlighter = ref<Highlighter | null>(null)
-
-onBeforeMount(async() => {
-  highlighter.value = await getHighlighter({ theme: 'vitesse-dark' })
-})
-
 const keyframeCSS = computed(() => {
-  if (highlighter.value) {
+  if (props.highlighter) {
     const css = usePrettier(`@keyframe ${props.animateInfo.name!} ${props.animateInfo.keyframe!}`)
-    return highlighter.value.codeToHtml(css, { lang: 'css' })
+    return props.highlighter.codeToHtml(css, { lang: 'css' })
   }
 })
 </script>
