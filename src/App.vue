@@ -41,14 +41,21 @@ onBeforeMount(useHighlighter)
 <template>
   <div of-x-hidden>
     <Modal v-model:visible="state.visible" :animate-info="animateInfo" :highlighter="highlighter" />
-    <div w-full p-4 grid="~ cols-2 sm:cols-4 md:cols-5 xl:cols-6 2xl:cols-7 gap-5">
-      <Animate v-for="(v, k) in animates.keyframes" :key="k" :name="k" @click="handleClicked(k)" />
-    </div>
+    <header px-4 fbc h-18>
+      <div />
+      <h1 text-red-400>
+        UnoCSS Animations
+      </h1>
+      <a text-xl title="Github" href="https://github.com/zyyv/unocss-animates" target="_blank" i-ri-github-line />
+    </header>
+    <main w-full p-4 pt-0 grid="~ cols-2 sm:cols-4 md:cols-5 xl:cols-6 2xl:cols-7 gap-5">
+      <Animate v-for="(_v, k) in animates.keyframes" :key="k" :name="k" @click="handleClicked(k)" />
+    </main>
   </div>
 </template>
 
 <style>
-html{
+html {
   --at-apply: bg-bg-dark text-text-dark;
 }
 </style>
