@@ -82,7 +82,7 @@ const { copy } = useClipboard()
         </p> -->
         <!-- <p>
           <label fw-500 text="teal sm right" inline-block w-30>Keyframe:</label> -->
-        <div pr>
+        <div max-w-screen pr>
           <div
             pa
             right-4
