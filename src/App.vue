@@ -48,7 +48,7 @@ onBeforeMount(useHighlighter)
       </h1>
       <a text-xl title="Github" href="https://github.com/zyyv/unocss-animates" target="_blank" i-ri-github-line />
     </header>
-    <main w-full p-4 pt-0 grid="~ cols-2 sm:cols-4 md:cols-5 xl:cols-6 2xl:cols-7 gap-5">
+    <main w-full p-4 pt-0 grid="~ cols-2 sm:cols-4 md:cols-5 xl:cols-6 2xl:cols-7 gap-5" of-hidden>
       <Animate v-for="(_v, k) in animates.keyframes" :key="k" :name="k" @click="handleClicked(k)" />
     </main>
   </div>
