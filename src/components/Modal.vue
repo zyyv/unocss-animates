@@ -30,19 +30,20 @@ const { copy } = useClipboard()
     bg="#222 op-80"
     z-10
   >
-    <div
-      text-xl
-      pa
-      top-10
-      right-10
-      i-ri:close-circle-line
-      hover-i-ri:close-circle-fill
-      cursor-pointer
-      @click="visible = false"
-    />
     <div w-full h-full fcc>
-      <div fccc gap-1 class="prose">
+      <div pr fccc gap-1 class="prose">
+        <div
+          text-xl
+          pa
+          top-0
+          right-0
+          i-ri:close-circle-line
+          hover-i-ri:close-circle-fill
+          cursor-pointer
+          @click="visible = false"
+        />
         <h2
+          mt-0
           fw-600
           text-3xl
           mb-2
@@ -55,7 +56,13 @@ const { copy } = useClipboard()
           {{ animateInfo.name }}
         </h2>
         <p>
-          Class: <span hover="b b-teal-300 b-dashed rd-2 cursor-pointer" inline-block p="x-2" text-teal @click="copy(`animate-${animateInfo.name}`)">animate-{{ animateInfo.name }}</span>
+          Class: <span
+            hover="b b-teal-300 b-dashed rd-2 cursor-pointer"
+            inline-block
+            p="x-2"
+            text-teal
+            @click="copy(`animate-${animateInfo.name}`)"
+          >animate-{{ animateInfo.name }}</span>
         </p>
         <!-- <p>
           <label fw-500 text="teal sm right" inline-block w-30>Count:</label>
