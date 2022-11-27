@@ -1,5 +1,5 @@
 <script lang='ts' setup>
-defineProps<{ name: string }>()
+defineProps<{ name: string, status: boolean }>()
 </script>
 
 <template>
@@ -13,8 +13,9 @@ defineProps<{ name: string }>()
     transtion
     hover-b-purple-400
     hover-text-purple-400
+    :class="!status && 'group'"
   >
-    <div :class="`animate-${name}`" animate-count-infinite>
+    <div :class="status ? `animate-${name}` : `group-hover-animate-${name}`" important-animate-count-infinite>
       {{ name }}
     </div>
   </div>

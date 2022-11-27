@@ -14,6 +14,8 @@ const state = reactive({
   visible: false,
 })
 
+const [isOpenAnimate, toggle] = useToggle(true)
+
 const handleClicked = (name: string) => {
   state.name = name
   state.visible = true
@@ -46,10 +48,16 @@ onBeforeMount(useHighlighter)
       <h1 text-red-400>
         UnoCSS Animations
       </h1>
-      <a text-xl title="Github" href="https://github.com/zyyv/unocss-animates" target="_blank" i-ri-github-line />
+      <div fsc text-xl gap-2>
+        <div cursor-pointer title="Toggle the animations" @click="toggle()">
+          <div v-if="isOpenAnimate" i-ri:toggle-fill text-purple />
+          <div v-else i-ri:toggle-line text-red />
+        </div>
+        <a title="Github" href="https://github.com/zyyv/unocss-animates" target="_blank" i-ri-github-line />
+      </div>
     </header>
     <main w-full p-4 pt-0 grid="~ cols-2 sm:cols-4 md:cols-5 xl:cols-6 2xl:cols-7 gap-5" of-hidden>
-      <Animate v-for="(_v, k) in animates.keyframes" :key="k" :name="k" @click="handleClicked(k)" />
+      <Animate v-for="(_v, k) in animates.keyframes" :key="k" :name="k" :status="isOpenAnimate" @click="handleClicked(k)" />
     </main>
   </div>
 </template>

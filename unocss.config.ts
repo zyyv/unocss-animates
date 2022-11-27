@@ -14,5 +14,5 @@ export default defineConfig({
     presetTypography(),
   ],
   transformers: [transformerDirectives(), transformerDirectives()],
-  safelist: Object.keys(theme.animation?.keyframes ?? {}).map(k => `animate-${k}`),
+  safelist: Object.keys(theme.animation?.keyframes ?? {}).map(k => [`animate-${k}`, `group-hover-animate-${k}`]).flat(),
 })
