@@ -1,6 +1,6 @@
 <script lang='ts' setup>
 import type { Highlighter } from 'shiki-es'
-import type { AnimateInfo } from '../type'
+import type { AnimateInfo } from '../types'
 
 const props = defineProps<{
   visible: boolean
@@ -11,14 +11,21 @@ const visible = useVModel(props, 'visible')
 
 const fotmatkeyframeCSS = ref('')
 
-const keyframeCSS = computed(() => {
+const keyframeCSS = computedAsync(async () => {
   if (props.highlighter) {
-    fotmatkeyframeCSS.value = usePrettier(`@keyframe ${props.animateInfo.name!} ${props.animateInfo.keyframe!}`)
+    fotmatkeyframeCSS.value = await usePrettier(`@keyframe ${props.animateInfo.name!} ${props.animateInfo.keyframe!}`)
     return props.highlighter.codeToHtml(fotmatkeyframeCSS.value, { lang: 'css' })
   }
 })
 
 const { copy } = useClipboard()
+
+watchEffect(()=>{
+  if (visible.value) 
+    document.body.style.overflow = 'hidden'
+  else 
+    document.body.style.overflow = 'auto'
+})
 </script>
 
 <template>

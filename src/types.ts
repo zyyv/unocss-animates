@@ -1,4 +1,4 @@
-export interface AnimateInfo{
+export interface AnimateInfo {
   name: string
   duration?: string
   timingFn?: string

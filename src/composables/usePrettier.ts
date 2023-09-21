@@ -1,7 +1,7 @@
 import prettier from 'prettier/standalone'
-import parserCSS from 'prettier/parser-postcss'
+import parserCSS from 'prettier/plugins/postcss'
 
-export const usePrettier = (code: string) => {
+export function usePrettier(code: string) {
   return prettier.format(code, {
     parser: 'css',
     plugins: [parserCSS],

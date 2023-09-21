@@ -2,10 +2,10 @@
 import { theme } from '@unocss/preset-wind'
 import { computed, reactive } from 'vue'
 import { getHighlighter } from 'shiki-es'
+import type { Highlighter } from 'shiki-es'
 import Animate from './components/Animate.vue'
 import Modal from './components/Modal.vue'
-import { AnimateInfo } from './type'
-import type { Highlighter } from 'shiki-es'
+import type { AnimateInfo } from './types'
 
 const animates = reactive(theme.animation || {})
 
@@ -16,7 +16,7 @@ const state = reactive({
 
 const [isOpenAnimate, toggle] = useToggle(true)
 
-const handleClicked = (name: string) => {
+function handleClicked(name: string) {
   state.name = name
   state.visible = true
 }
@@ -80,8 +80,3 @@ onBeforeMount(useHighlighter)
   </div>
 </template>
 
-<style>
-html {
-  --at-apply: bg-bg-dark text-text-dark;
-}
-</style>

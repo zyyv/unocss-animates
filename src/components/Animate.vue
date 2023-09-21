@@ -1,5 +1,8 @@
 <script lang='ts' setup>
-defineProps<{ name: string, status: boolean }>()
+defineProps<{ 
+  name: string
+  status: boolean 
+}>()
 </script>
 
 <template>
