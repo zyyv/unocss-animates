@@ -1,19 +1,15 @@
 <script lang='ts' setup>
 import type { Highlighter } from 'shiki-es'
-import type { AnimateInfo } from '../types'
 
 const props = defineProps<{
-  visible: boolean
-  animateInfo: AnimateInfo
   highlighter?: Highlighter
 }>()
-const visible = useVModel(props, 'visible')
 
 const fotmatkeyframeCSS = ref('')
 
 const keyframeCSS = computedAsync(async () => {
   if (props.highlighter) {
-    fotmatkeyframeCSS.value = await usePrettier(`@keyframe ${props.animateInfo.name!} ${props.animateInfo.keyframe!}`)
+    fotmatkeyframeCSS.value = await usePrettier(`@keyframe ${activeAnimate.value.name} ${activeAnimate.value.keyframe}`)
     return props.highlighter.codeToHtml(fotmatkeyframeCSS.value, { lang: 'css' })
   }
 })
@@ -32,16 +28,20 @@ function handleCopy(value: string) {
 }
 
 watchEffect(()=>{
-  if (visible.value) 
+  if (modalVisible.value) 
     document.body.style.overflow = 'hidden'
   else 
     document.body.style.overflow = 'auto'
 })
+
+function handleCloseModal() {
+  modalVisible.value = false
+}
 </script>
 
 <template>
   <div
-    v-show="visible"
+    v-show="modalVisible"
     pf
     w-screen
     h-screen
@@ -58,7 +58,7 @@ watchEffect(()=>{
         i-ri:close-circle-line
         hover-i-ri:close-circle-fill
         cursor-pointer
-        @click="visible = false"
+        @click="handleCloseModal()"
       />
       <h2
         mt-0
@@ -69,9 +69,9 @@ watchEffect(()=>{
         py-2
         text-red
         hover="b b-red-300 b-dashed rd-2 cursor-pointer"
-        @click="handleCopy(animateInfo.name)"
+        @click="handleCopy(activeAnimate.name)"
       >
-        {{ animateInfo.name }}
+        {{ activeAnimate.name }}
       </h2>
       <p>
         Uno Class: <span
@@ -79,8 +79,8 @@ watchEffect(()=>{
           inline-block
           p="x-2"
           text-teal
-          @click="handleCopy(`animate-${animateInfo.name}`)"
-        >animate-{{ animateInfo.name }}</span>
+          @click="handleCopy(`animate-${activeAnimate.name}`)"
+        >animate-{{ activeAnimate.name }}</span>
       </p>
       <!-- <p>
           <label fw-500 text="teal sm right" inline-block w-30>Count:</label>

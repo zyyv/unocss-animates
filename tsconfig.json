@@ -1,21 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["ESNext", "DOM"],
-    "jsx": "preserve",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "types": [
-      "vite/client",
-      "unplugin-unocss-config/client"
-    ],
+    "target": "esnext",
+    "lib": ["esnext", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
-    "noEmit": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
     "strict": true,
-    "skipLibCheck": true
+    "strictNullChecks": true,
+    "esModuleInterop": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
