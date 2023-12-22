@@ -6,6 +6,10 @@
     "useDefineForClassFields": true,
     "module": "ESNext",
     "moduleResolution": "Node",
+    "types": [
+      "vite/client",
+      "unplugin-unocss-config/client"
+    ],
     "resolveJsonModule": true,
     "noEmit": true,
     "isolatedModules": true,

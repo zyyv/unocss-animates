@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { theme } from '@unocss/preset-wind'
 import { computed, reactive } from 'vue'
 import { getHighlighter } from 'shiki-es'
 import type { Highlighter } from 'shiki-es'
@@ -7,7 +6,7 @@ import Animate from './components/Animate.vue'
 import Modal from './components/Modal.vue'
 import type { AnimateInfo } from './types'
 
-const animates = reactive(theme.animation || {})
+const animates = reactive((import.meta.env.__UNO_THEME__ as any).animation || {})
 
 const state = reactive({
   name: '',
