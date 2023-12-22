@@ -1,6 +1,5 @@
 {
   "name": "unocss-animates",
-  "type": "module",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -12,7 +11,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.7.0",
-    "shiki-es": "^0.14.0",
+    "shikiji": "^0.9.11",
     "unplugin-unocss-config": "^0.0.7",
     "vue": "^3.3.13"
   },
