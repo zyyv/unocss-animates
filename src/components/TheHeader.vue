@@ -4,7 +4,7 @@
     h-10 w-full fbc px-4 md-h-18
   >
     <div />
-    <h1 text-red-400>
+    <h1 text="#bbb">
       UnoCSS Animations
     </h1>
     <div text-md fsc gap-2 md:text-xl>

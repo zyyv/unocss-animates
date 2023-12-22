@@ -1,6 +1,8 @@
 <script lang='ts' setup>
 import { codeToHtml } from 'shikiji'
 
+const activeAnimateName = computed(() => activeAnimate.value.name)
+
 const fotmatkeyframeCSS = computedAsync(async () => {
   return await usePrettier(`@keyframe ${activeAnimate.value.name} ${activeAnimate.value.keyframe}`)
 })
@@ -35,52 +37,33 @@ watchEffect(() => {
 </script>
 
 <template>
-  <div v-show="modalVisible" bg="#222 op-80" pf z-10 h-screen w-screen fcc>
-    <div pr fccc gap-1 class="prose">
-      <div
-        i-ri:close-circle-line pa right-0 top-0 cursor-pointer text-xl hover-i-ri:close-circle-fill
-        @click="handleCloseModal()"
-      />
-      <h2
-        mb-2 mt-0 px-4 py-2 text-3xl text-red fw-600 hover="b b-red-300 b-dashed rd-2 cursor-pointer"
-        @click="handleCopy(activeAnimate.name)"
-      >
-        {{ activeAnimate.name }}
-      </h2>
-      <p>
-        Uno Class:
-        <span
-          hover="b b-teal-300 b-dashed rd-2 cursor-pointer" inline-block px-2 text-teal
-          @click="handleCopy(`animate-${activeAnimate.name}`)"
-        >
-          animate-{{ activeAnimate.name }}
-        </span>
-      </p>
-      <!-- <p>
-          <label fw-500 text="teal sm right" inline-block w-30>Count:</label>
-          {{ animateInfo.count }}
+  <transition enter-active-class="animate-fade-in animate-duration-200"
+    leave-active-class="animate-fade-out animate-duration-200" mode="out-in">
+    <div v-show="modalVisible" bg="#222 op-80" pf z-10 h-screen w-screen fcc gap-10 backdrop-blur p-10>
+      <div i-ri:close-circle-line pa right-10 top-10 cursor-pointer text-xl hover-i-ri:close-circle-fill
+          @click="handleCloseModal()" />
+      <div flex-1 flex flex-col items-center class="prose" h-fit max-h-full of-scroll>
+        <h2 w-fit mb-2 mt-0 pb-1 cursor-pointer text="3xl #bbb" fw-600 b-b="~ dashed #888" hover="b-b-#eee text-#eee"
+          @click="handleCopy(activeAnimate.name)">
+          {{ activeAnimate.name }}
+        </h2>
+        <p text="#888 op-80">
+          UnoCSS Usage:
+          <span ml-2 cursor-pointer inline-block b-b="~ dashed #888" hover="b-b-#eee text-#eee"
+            @click="handleCopy(`animate-${activeAnimate.name}`)">
+            animate-{{ activeAnimate.name }}
+          </span>
         </p>
-        <p>
-          <label fw-500 text="teal sm right" inline-block w-30>Duration:</label>
-          {{ animateInfo.duration }}
-        </p>
-        <p>
-          <label fw-500 text="teal sm right" inline-block w-30>Timing Function:</label>
-          {{ animateInfo.timingFn }}
-        </p>
-        <p>
-          <label fw-500 text="teal sm right" inline-block w-30>Property:</label>
-          {{ animateInfo.property }}
-        </p> -->
-      <!-- <p>
-          <label fw-500 text="teal sm right" inline-block w-30>Keyframe:</label> -->
-      <div pr max-w-screen>
-        <div
-          i-ri:clipboard-line pa right-4 top-8 cursor-pointer hover-i-ri:clipboard-fill
-          @click="handleCopy(fotmatkeyframeCSS)"
-        />
-        <div v-html="keyframeCSS" />
+        <div pr w-full>
+          <div i-ri:clipboard-line pa right-4 top-8 cursor-pointer hover-i-ri:clipboard-fill
+            @click="handleCopy(fotmatkeyframeCSS)" />
+          <div v-html="keyframeCSS" />
+        </div>
+      </div>
+
+      <div flex-1 max-w-100 aspect-square hidden md:block>
+        <Animate :key="activeAnimateName" :name="activeAnimateName" type="radio" :hoverable="false" />
       </div>
     </div>
-  </div>
+  </transition>
 </template>

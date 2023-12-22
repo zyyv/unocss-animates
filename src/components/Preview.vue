@@ -7,10 +7,8 @@ function handleClicked(keyframeName: string) {
 
 <template>
   <main
-
     grid="~ cols-2 sm:cols-4 md:cols-5 xl:cols-6 2xl:cols-7 gap-5"
-
-    w-full of-hidden p-4 pt-0 trans
+    w-full of-hidden p-4 trans
   >
     <template v-if="All_Animations">
       <Animate
@@ -19,6 +17,7 @@ function handleClicked(keyframeName: string) {
         :name="k"
         :status="isOpenAnimate"
         @click="handleClicked(k)"
+        type="radio"
       />
     </template>
     <div v-else>
