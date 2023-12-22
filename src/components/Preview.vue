@@ -16,8 +16,8 @@ function handleClicked(keyframeName: string) {
         :key="k"
         :name="k"
         :status="isOpenAnimate"
-        @click="handleClicked(k)"
         type="radio"
+        @click="handleClicked(k)"
       />
     </template>
     <div v-else>

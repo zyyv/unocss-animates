@@ -9,12 +9,12 @@ const resolvedConfig = resolveConfig({
       cdn: 'https://esm.sh/',
     },
     typography: {
-      cssExtend:{
-        'pre': {
+      cssExtend: {
+        pre: {
           'background-color': '#222 !important',
           'border': '1px solid #444 !important',
-        }
-      }
+        },
+      },
     },
   })],
   preflights: [{

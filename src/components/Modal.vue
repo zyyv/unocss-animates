@@ -37,31 +37,41 @@ watchEffect(() => {
 </script>
 
 <template>
-  <transition enter-active-class="animate-fade-in animate-duration-200"
-    leave-active-class="animate-fade-out animate-duration-200" mode="out-in">
-    <div v-show="modalVisible" bg="#222 op-80" pf z-10 h-screen w-screen fcc gap-10 backdrop-blur p-10>
-      <div i-ri:close-circle-line pa right-10 top-10 cursor-pointer text-xl hover-i-ri:close-circle-fill
-          @click="handleCloseModal()" />
-      <div flex-1 flex flex-col items-center class="prose" h-fit max-h-full of-scroll>
-        <h2 w-fit mb-2 mt-0 pb-1 cursor-pointer text="3xl #bbb" fw-600 b-b="~ dashed #888" hover="b-b-#eee text-#eee"
-          @click="handleCopy(activeAnimate.name)">
+  <transition
+    enter-active-class="animate-fade-in animate-duration-200"
+    leave-active-class="animate-fade-out animate-duration-200" mode="out-in"
+  >
+    <div v-show="modalVisible" bg="#222 op-80" pf z-10 h-screen w-screen fcc gap-10 p-10 backdrop-blur>
+      <div
+        i-ri:close-circle-line pa right-10 top-10 cursor-pointer text-xl hover-i-ri:close-circle-fill
+        @click="handleCloseModal()"
+      />
+      <div class="prose" h-fit max-h-full flex flex-1 flex-col items-center of-scroll>
+        <h2
+          text="3xl #bbb" mb-2 mt-0 w-fit cursor-pointer pb-1 fw-600 b-b="~ dashed #888" hover="b-b-#eee text-#eee"
+          @click="handleCopy(activeAnimate.name)"
+        >
           {{ activeAnimate.name }}
         </h2>
         <p text="#888 op-80">
           UnoCSS Usage:
-          <span ml-2 cursor-pointer inline-block b-b="~ dashed #888" hover="b-b-#eee text-#eee"
-            @click="handleCopy(`animate-${activeAnimate.name}`)">
+          <span
+            ml-2 inline-block cursor-pointer b-b="~ dashed #888" hover="b-b-#eee text-#eee"
+            @click="handleCopy(`animate-${activeAnimate.name}`)"
+          >
             animate-{{ activeAnimate.name }}
           </span>
         </p>
         <div pr w-full>
-          <div i-ri:clipboard-line pa right-4 top-8 cursor-pointer hover-i-ri:clipboard-fill
-            @click="handleCopy(fotmatkeyframeCSS)" />
+          <div
+            i-ri:clipboard-line pa right-4 top-8 cursor-pointer hover-i-ri:clipboard-fill
+            @click="handleCopy(fotmatkeyframeCSS)"
+          />
           <div v-html="keyframeCSS" />
         </div>
       </div>
 
-      <div flex-1 max-w-100 aspect-square hidden md:block>
+      <div hidden aspect-square max-w-100 flex-1 md:block>
         <Animate :key="activeAnimateName" :name="activeAnimateName" type="radio" :hoverable="false" />
       </div>
     </div>
