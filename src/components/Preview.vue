@@ -7,18 +7,16 @@ function handleClicked(keyframeName: string) {
 
 <template>
   <main
-    w-full
-    p-4
-    pt-0
+
     grid="~ cols-2 sm:cols-4 md:cols-5 xl:cols-6 2xl:cols-7 gap-5"
-    trans
-    of-hidden
+
+    w-full of-hidden p-4 pt-0 trans
   >
     <template v-if="All_Animations">
-      <Animate 
-        v-for="(_v, k) in All_Animations.keyframes" 
+      <Animate
+        v-for="(_v, k) in All_Animations.keyframes"
         :key="k"
-        :name="k" 
+        :name="k"
         :status="isOpenAnimate"
         @click="handleClicked(k)"
       />
@@ -28,4 +26,3 @@ function handleClicked(keyframeName: string) {
     </div>
   </main>
 </template>
-

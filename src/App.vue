@@ -18,4 +18,3 @@ onBeforeMount(useHighlighter)
     <Preview />
   </div>
 </template>
-

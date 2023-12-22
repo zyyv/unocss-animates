@@ -1,16 +1,13 @@
 <template>
   <header
-    px-4
-    fbc
-    h-10
-    md-h-18
-    w-full
+
+    h-10 w-full fbc px-4 md-h-18
   >
     <div />
     <h1 text-red-400>
       UnoCSS Animations
     </h1>
-    <div fsc text-md md:text-xl gap-2>
+    <div text-md fsc gap-2 md:text-xl>
       <div cursor-pointer title="Toggle the animations" @click="toggleIsOpenAnimate()">
         <div v-if="isOpenAnimate" i-ri:toggle-fill text-purple />
         <div v-else i-ri:toggle-line text-red />

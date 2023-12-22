@@ -15,4 +15,3 @@ export const activeAnimate = computed(() => {
     keyframe: All_Animations.value?.keyframes?.[activeAnimateName.value],
   } as AnimateInfo
 })
-

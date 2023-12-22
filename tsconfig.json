@@ -5,12 +5,17 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "types": [
+      "vite/client",
+      "unplugin-unocss-config/client"
+    ],
     "strict": true,
     "strictNullChecks": true,
     "esModuleInterop": true
   },
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "eslint.config.js",
   ]
 }

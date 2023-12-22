@@ -1,21 +1,16 @@
 <script lang='ts' setup>
-defineProps<{ 
+defineProps<{
   name: string
-  status: boolean 
+  status: boolean
 }>()
 </script>
 
 <template>
   <div
-    b
-    w-full
+
     aspect="1/1"
-    fcc
-    rd-2
-    hover-cursor-pointer
-    transtion
-    hover-b-purple-400
-    hover-text-purple-400
+
+    transtion w-full fcc b rd-2 hover-cursor-pointer hover-b-purple-400 hover-text-purple-400
     :class="!status && 'group'"
   >
     <div :class="status ? `animate-${name}` : `group-hover-animate-${name}`" important-animate-count-infinite>

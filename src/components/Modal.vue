@@ -19,7 +19,7 @@ const { copy } = useClipboard()
 function handleCopy(value: string) {
   try {
     copy(value)
-    alert('Copied!')
+    // alert('Copied!')
   }
   catch (error) {
     // eslint-disable-next-line no-console
@@ -27,10 +27,10 @@ function handleCopy(value: string) {
   }
 }
 
-watchEffect(()=>{
-  if (modalVisible.value) 
+watchEffect(() => {
+  if (modalVisible.value)
     document.body.style.overflow = 'hidden'
-  else 
+  else
     document.body.style.overflow = 'auto'
 })
 
@@ -42,32 +42,19 @@ function handleCloseModal() {
 <template>
   <div
     v-show="modalVisible"
-    pf
-    w-screen
-    h-screen
-    fcc
+
     bg="#222 op-80"
-    z-10
+    pf z-10 h-screen w-screen fcc
   >
     <div pr fccc gap-1 class="prose">
       <div
-        text-xl
-        pa
-        top-0
-        right-0
-        i-ri:close-circle-line
-        hover-i-ri:close-circle-fill
-        cursor-pointer
+
+        i-ri:close-circle-line pa right-0 top-0 cursor-pointer text-xl hover-i-ri:close-circle-fill
         @click="handleCloseModal()"
       />
       <h2
-        mt-0
-        fw-600
-        text-3xl
-        mb-2
-        px-4
-        py-2
-        text-red
+
+        mb-2 mt-0 px-4 py-2 text-3xl text-red fw-600
         hover="b b-red-300 b-dashed rd-2 cursor-pointer"
         @click="handleCopy(activeAnimate.name)"
       >
@@ -100,14 +87,10 @@ function handleCloseModal() {
         </p> -->
       <!-- <p>
           <label fw-500 text="teal sm right" inline-block w-30>Keyframe:</label> -->
-      <div max-w-screen pr>
+      <div pr max-w-screen>
         <div
-          pa
-          right-4
-          top-8
-          i-ri:clipboard-line
-          hover-i-ri:clipboard-fill
-          cursor-pointer
+
+          i-ri:clipboard-line pa right-4 top-8 cursor-pointer hover-i-ri:clipboard-fill
           @click="handleCopy(fotmatkeyframeCSS)"
         />
         <div v-html="keyframeCSS" />
