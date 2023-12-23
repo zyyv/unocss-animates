@@ -25,6 +25,12 @@ devDependencies:
   '@chris-zhu/eslint-config':
     specifier: ^1.0.7
     version: 1.0.7(eslint@8.56.0)(typescript@5.3.3)
+  '@iconify-json/carbon':
+    specifier: ^1.1.27
+    version: 1.1.27
+  '@iconify-json/logos':
+    specifier: ^1.1.41
+    version: 1.1.41
   '@types/prettier':
     specifier: ^3.0.0
     version: 3.0.0
@@ -822,6 +828,18 @@ packages:
 
   /@humanwhocodes/object-schema@2.0.1:
     resolution: {integrity: sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==}
+    dev: true
+
+  /@iconify-json/carbon@1.1.27:
+    resolution: {integrity: sha512-tJVXv9+D9cjU5HcaY+8J0awv9AL/Mjo9MWR/fxHfHFPP/iokjPBEgq4jOBDGNe8W0k/BTrVI3zpgZjLoi6RNGg==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/logos@1.1.41:
+    resolution: {integrity: sha512-nq69aemSNSxsPh6hDx6QHQBZca6vQzTg6fUXdo996IQe41TNueyJrQXjdhaZr0jaqGEforuSPGLB16SMSZ+T2A==}
+    dependencies:
+      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify/types@2.0.0:
