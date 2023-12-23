@@ -1,7 +1,7 @@
 <template>
   <header h-10 w-full fbc px-4 md-h-18>
-    <div pr w-14 h-14 fcc>
-      <div animate-pulse pa top-0 left-0 w-full h-full rd-full blur-lg z-1 style="background-image: linear-gradient( -45deg, #44444460 30%, #88888860 );"></div>
+    <div pr h-14 w-14 fcc>
+      <div pa left-0 top-0 z-1 h-full w-full animate-pulse rd-full blur-lg style="background-image: linear-gradient( -45deg, #44444460 30%, #88888860 );" />
       <div i-logos-unocss animate-duration-2000 animate-count-infinite text-3xl />
     </div>
     <h1 text="#bbb" fcc gap-2>

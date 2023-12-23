@@ -65,7 +65,8 @@ watchEffect(() => {
         <div pr w-full>
           <div pa right-4 top-8 cursor-pointer>
             <div v-if="copied" i-ri-check-line />
-            <div v-else
+            <div
+              v-else
               i-ri:clipboard-line hover-i-ri:clipboard-fill
               @click="handleCopy(fotmatkeyframeCSS)"
             />
