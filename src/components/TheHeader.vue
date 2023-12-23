@@ -5,7 +5,7 @@
       <div i-logos-unocss animate-duration-2000 animate-count-infinite text-3xl />
     </div>
     <h1 text="#bbb" fcc gap-2>
-      <div fcc class="animate-count-infinite" :class="{ 'children-animate-none': !isOpenAnimate }">
+      <div fcc class="children-animate-count-infinite" :class="{ 'children-animate-none': !isOpenAnimate }">
         <div animate-light-speed-in-left>
           U
         </div>
@@ -26,7 +26,7 @@
         </div>
       </div>
 
-      <div fcc class="animate-count-infinite" :class="{ 'children-animate-none': !isOpenAnimate }">
+      <div fcc class="children-animate-count-infinite" :class="{ 'children-animate-none': !isOpenAnimate }">
         <div animate-light-speed-in-left>
           A
         </div>
