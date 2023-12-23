@@ -7,7 +7,8 @@ function handleClicked(keyframeName: string) {
 
 <template>
   <main
-    grid="~ cols-2 sm:cols-4 md:cols-5 xl:cols-6 2xl:cols-7 gap-5"
+    grid="~ cols-2 sm:cols-3 xl:cols-5 2xl:cols-6"
+    gap="4 sm:2vw xl:1vw"
     w-full of-hidden p-4 trans
   >
     <template v-if="All_Animations">

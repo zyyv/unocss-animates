@@ -11,7 +11,7 @@ const keyframeCSS = computedAsync(async () => {
   return await codeToHtml(fotmatkeyframeCSS.value, { lang: 'css', theme: 'vitesse-dark' })
 })
 
-const { copy } = useClipboard()
+const { copy, copied } = useClipboard()
 
 function handleCopy(value: string) {
   try {
@@ -63,10 +63,13 @@ watchEffect(() => {
           </span>
         </p>
         <div pr w-full>
-          <div
-            i-ri:clipboard-line pa right-4 top-8 cursor-pointer hover-i-ri:clipboard-fill
-            @click="handleCopy(fotmatkeyframeCSS)"
-          />
+          <div pa right-4 top-8 cursor-pointer>
+            <div v-if="copied" i-ri-check-line />
+            <div v-else
+              i-ri:clipboard-line hover-i-ri:clipboard-fill
+              @click="handleCopy(fotmatkeyframeCSS)"
+            />
+          </div>
           <div v-html="keyframeCSS" />
         </div>
       </div>
