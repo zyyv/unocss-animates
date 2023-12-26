@@ -3,5 +3,6 @@
     <Modal />
     <TheHeader />
     <Preview />
+    <Settings />
   </div>
 </template>

@@ -10,6 +10,7 @@ declare module 'vue' {
     Animate: typeof import('./components/Animate.vue')['default']
     Modal: typeof import('./components/Modal.vue')['default']
     Preview: typeof import('./components/Preview.vue')['default']
+    Settings: typeof import('./components/Settings.vue')['default']
     TheHeader: typeof import('./components/TheHeader.vue')['default']
   }
 }

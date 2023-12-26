@@ -53,11 +53,12 @@
         </div>
       </div>
     </h1>
-    <div text-md fsc gap-2 md:text-xl>
+    <div text-md fcc gap-2 md:text-xl>
       <div cursor-pointer title="Toggle the animations" @click="toggleIsOpenAnimate()">
         <div v-if="isOpenAnimate" i-ri:toggle-fill text-purple />
         <div v-else i-ri:toggle-line text-red />
       </div>
+      <div i-ri-settings-4-line cursor-pointer></div>
       <a title="Github" href="https://github.com/zyyv/unocss-animates" target="_blank" i-ri-github-line />
     </div>
   </header>
